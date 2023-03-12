@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Home.css';
 
@@ -22,7 +23,7 @@ function Home() {
             <h5>{phone.phone_name}</h5>
             <img src={phone.image} alt={phone.phone_name} />
             <p>
-              <a href={phone.detail}>View details</a>
+              <Link to={`/details/${phone.slug}`}>View details</Link>
             </p>
           </div>
         ))}

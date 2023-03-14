@@ -11,15 +11,13 @@ import './Nav.css';
 
 function NavBar() {
     const [searchQuery, setSearchQuery] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
     const navigate = useNavigate();
 
     const handleSearch = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.get(`http://phone-specs-api.azharimm.dev/search?query=${searchQuery}`);
-            setSearchResults(response.data);
-            navigate('/results', { state: searchResults });
+            const response = await axios.get(`https://phone-specs-api.azharimm.dev/search?query=${searchQuery}`);
+            navigate('/results', { state: response.data });
         } catch (error) {
             console.error(error);
         }

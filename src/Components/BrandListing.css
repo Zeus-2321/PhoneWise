@@ -1,42 +1,21 @@
-/* ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-li:last-child {
-  border-bottom: none;
-}
-
-li span {
-  color: #999;
-  font-size: 14px;
-}
-
-.device-count {
-  font-size: 0.8em;
-  color: rgb(102, 102, 102);
-} */
-
-
-.brands-listing {
+.brand-listing {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 2rem;
 }
 
-.brands-listing h2 {
+.brand-listing h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.brands-listing ul {
+.brand-listing h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.brand-listing ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -45,7 +24,7 @@ li span {
   justify-content: center;
 }
 
-.brands-listing li {
+.brand-listing li {
   margin: 1rem;
   text-align: center;
   width: 250px;
@@ -55,27 +34,22 @@ li span {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.brands-listing li:hover {
+.brand-listing li:hover {
   transform: translateY(-5px);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.brands-listing a {
+.brand-listing img {
+  max-width: 100%;
+  height: auto;
+}
+
+.brand-listing a {
   color: #333;
   text-decoration: none;
   display: block;
 }
 
-.brands-listing a:hover {
+.brand-listing a:hover {
   text-decoration: underline;
-}
-
-.brands-listing h5 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.brands-listing .device-count {
-  font-size: 1rem;
-  color: #666;
 }

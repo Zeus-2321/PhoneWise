@@ -6,6 +6,8 @@ import Brands from "./Components/Brands";
 import About from "./Components/About";
 import SearchResult from "./Components/SearchResult";
 import Details from "./Components/Details";
+import BrandListing from "./Components/BrandListing";
+
 
 
 
@@ -20,6 +22,7 @@ function App() {
         <Route path="/results" element={<SearchResult></SearchResult>} />
         <Route path="/about" element={<About></About>} />
         <Route path="/details/:slug" element={<Details></Details>} />
+        <Route path="brandListing/:slug" element={<BrandListing></BrandListing>} />
       </Routes>
     </>
   );

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Brands.css';
 
@@ -14,12 +15,13 @@ function Brands() {
     }, []);
 
     return (
-        <div>
+        <div className="brands-listing">
             <h2>Mobile Brands</h2>
             <ul>
                 {brands.map((brand) => (
                     <li key={brand.brand_id}>
-                        <h5>{brand.brand_name}</h5>
+                        <Link to={`/BrandListing/${brand.brand_slug}`}>
+                            <h5>{brand.brand_name}</h5></Link>
                         <p className="device-count">{brand.device_count} devices</p>
                     </li>
                 ))}
@@ -29,5 +31,6 @@ function Brands() {
 }
 
 export default Brands;
+
 
 

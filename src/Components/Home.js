@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { InfinitySpin } from 'react-loader-spinner';
 import axios from 'axios';
 import './Home.css';
 
@@ -13,6 +14,15 @@ function Home() {
     }
     fetchData();
   }, []);
+
+  if (phones.length === 0) {
+    return <div className='spinner-container'>
+      <InfinitySpin
+        width='200'
+        color="#4fa94d"
+      />
+    </div>
+  }
 
   return (
     <div id='homeContainer'>

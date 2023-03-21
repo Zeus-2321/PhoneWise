@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Profile from './Profile.js';
+
 
 function About() {
     return (
-        <div>About</div>
+        <>
+            <div>About</div>
+            <Profile></Profile>
+        </>
     )
 }
 
-export default About
+export default About;

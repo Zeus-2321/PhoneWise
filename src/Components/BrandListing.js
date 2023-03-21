@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
+import { InfinitySpin } from 'react-loader-spinner';
+
 import './BrandListing.css';
 
 function BrandListing() {
@@ -13,25 +15,31 @@ function BrandListing() {
             setPhones(response.data.data.phones);
         }
         fetchPhones();
+        window.scrollTo(0, 0);
     }, [slug]);
+
+    if (phones.length === 0) {
+        return <div className='spinner-container'>
+            <InfinitySpin
+                width='200'
+                color="#4fa94d"
+            />
+        </div>
+    }
 
     return (
         <div className="brand-listing">
             <h1>Brand: {phones.length > 0 ? phones[0].brand : ''}</h1>
-            {phones.length > 0 ?
-                <ul>
-                    {phones.map((phone) => (
-                        <li key={phone.slug}>
-                            <Link to={`/details/${phone.slug}`}>
-                                <img src={phone.image} alt={phone.phone_name} />
-                                <div>{phone.phone_name}</div>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-                :
-                <p>Loading...</p>
-            }
+            <ul>
+                {phones.map((phone) => (
+                    <li key={phone.slug}>
+                        <Link to={`/details/${phone.slug}`}>
+                            <h5>{phone.phone_name}</h5>
+                            <img src={phone.image} alt={phone.phone_name} />
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 

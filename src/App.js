@@ -9,9 +9,6 @@ import Details from "./Components/Details";
 import BrandListing from "./Components/BrandListing";
 
 
-
-
-
 function App() {
   return (
     <>

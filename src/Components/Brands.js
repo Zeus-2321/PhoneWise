@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { InfinitySpin } from 'react-loader-spinner';
 import axios from 'axios';
 import './Brands.css';
 
@@ -12,7 +13,17 @@ function Brands() {
             setBrands(response.data.data);
         }
         fetchData();
+        window.scrollTo(0, 0);
     }, []);
+
+    if (brands.length === 0) {
+        return <div className='spinner-container'>
+            <InfinitySpin
+                width='200'
+                color="#4fa94d"
+            />
+        </div>
+    }
 
     return (
         <div className="brands-listing">
@@ -31,6 +42,3 @@ function Brands() {
 }
 
 export default Brands;
-
-
-

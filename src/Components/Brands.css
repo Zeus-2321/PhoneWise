@@ -1,29 +1,3 @@
-/* ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-li:last-child {
-  border-bottom: none;
-}
-
-li span {
-  color: #999;
-  font-size: 14px;
-}
-
-.device-count {
-  font-size: 0.8em;
-  color: rgb(102, 102, 102);
-} */
-
-
 .brands-listing {
   display: flex;
   flex-direction: column;
@@ -56,7 +30,7 @@ li span {
 }
 
 .brands-listing li:hover {
-  transform: translateY(-5px);
+  transform: scale(1.05);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 

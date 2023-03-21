@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './SearchResult.css';
+import image from './pepe.jfif';
 
 function SearchResult(props) {
     const location = useLocation();
@@ -30,6 +31,7 @@ function SearchResult(props) {
                 <div className="no-search-result-container">
                     <h2>No Search Result Found</h2>
                     <h3>:(</h3>
+                    <img src={image} alt='pepe' />
                 </div>
             )}
         </div>

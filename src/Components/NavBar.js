@@ -7,11 +7,15 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from './logo1.png';
+import Login from './Login.js';
+import Logout from './Logout.js';
 import './Nav.css';
+import { useAuth0 } from "@auth0/auth0-react";
 
 function NavBar() {
     const [searchQuery, setSearchQuery] = useState('');
     const navigate = useNavigate();
+    const { isAuthenticated } = useAuth0();
 
     const handleSearch = async (event) => {
         event.preventDefault();
@@ -38,7 +42,7 @@ function NavBar() {
                         <Form.Control type="search" placeholder="Search" className="me-2 search-input" aria-label="Search" value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} />
                         <Button variant="outline-success" type="submit">Search</Button>
                     </Form>
-                    <Nav className="me-auto my-2 my-lg-0" navbarScroll>
+                    <Nav className="me-auto my-2 my-lg-0 align-items-center" navbarScroll>
                         <Link to="/" className="nav-link">
                             Home
                         </Link>
@@ -48,6 +52,7 @@ function NavBar() {
                         <Link to="/about" className="nav-link">
                             About
                         </Link>
+                        {isAuthenticated ? <Logout /> : <Login></Login>}
                     </Nav>
                 </Navbar.Collapse>
             </Container>

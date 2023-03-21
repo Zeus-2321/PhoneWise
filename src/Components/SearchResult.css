@@ -1,5 +1,8 @@
 .container{
-  margin-top: 2%;
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-results-container {
@@ -33,6 +36,16 @@
 .no-search-result-container h2 {
   font-size: 32px;
   margin-bottom: 10px;
+}
+
+.no-search-result-container img{
+  min-width: 45vw;
+}
+
+@media (max-width: 768px) {
+  .no-search-result-container img{
+    min-width: 60vw;
+}
 }
 
 .search-result:hover {

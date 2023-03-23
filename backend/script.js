@@ -45,9 +45,9 @@ const getData = async () => {
             if (!existingBrand) {
                 // If the brand does not exist, add it to the newData array
                 newData.push({
-                    brand_id: brand.brand_id,
                     brand_name: brand.brand_name,
-                    detail: brand.detail
+                    brand_slug: brand.brand_slug,
+                    device_count: brand.device_count
                 });
             }
         }

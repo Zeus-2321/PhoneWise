@@ -5,7 +5,7 @@ const cron = require('node-cron');
 const MyModel = require('./models/Brand');
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const DB_URI = 'mongodb+srv://Admin:Admin69@cluster0.bs2zgrh.mongodb.net/test';
 
 mongoose.connect(DB_URI, {

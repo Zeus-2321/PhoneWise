@@ -6,9 +6,8 @@ const MyModel = require('./models/Brand');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const DB_URI = 'mongodb+srv://Admin:Admin69@cluster0.bs2zgrh.mongodb.net/test';
 
-mongoose.connect(DB_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })

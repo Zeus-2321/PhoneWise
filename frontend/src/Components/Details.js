@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { InfinitySpin } from 'react-loader-spinner';
-import { Carousel } from 'react-bootstrap';
 import './Details.css';
 
 
@@ -32,18 +31,7 @@ function Details() {
         <div className="details-container">
             <div className="details-header">
                 <h2>{phone.brand} {phone.phone_name}</h2>
-                <Carousel slide={false} variant="dark" controls={false} interval={3000}>
-                    {phone.phone_images.map((image, index) => (
-                        <Carousel.Item key={index}>
-                            <img
-                                className="d-block w-100 mx-auto"
-                                src={image}
-                                alt={`Slide ${index}`}
-                                style={{ objectFit: 'contain' }}
-                            />
-                        </Carousel.Item>
-                    ))}
-                </Carousel>
+                <img src={phone.phone_images[0]} alt={phone.phone_name} />
                 <p><strong>Release Date:</strong> {phone.release_date}</p>
                 <p><strong>Dimensions:</strong> {phone.dimension}</p>
                 <p><strong>OS:</strong> {phone.os}</p>

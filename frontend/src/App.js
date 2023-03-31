@@ -7,6 +7,7 @@ import About from "./Components/About";
 import SearchResult from "./Components/SearchResult";
 import Details from "./Components/Details";
 import BrandListing from "./Components/BrandListing";
+import NotFound from "./Components/NotFound";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/details/:slug" element={<Details />} />
         <Route path="brandListing/:slug" element={<BrandListing />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

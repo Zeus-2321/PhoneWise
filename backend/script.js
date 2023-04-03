@@ -1,10 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const axios = require('axios');
+const cors = require('cors');
 const cron = require('node-cron');
 const MyModel = require('./models/Brand');
 
 const app = express();
+app.use(cors());
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.MONGODB_URI, {

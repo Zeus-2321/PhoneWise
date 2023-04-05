@@ -1,13 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const axios = require('axios');
-const cors = require('cors');
 const cron = require('node-cron');
-const phonesRouter = require('./routes');
+const MyModel = require('./models/Brand');
 
 const app = express();
-app.use(cors());
-app.use('/api', phonesRouter);
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.MONGODB_URI, {
@@ -21,6 +18,15 @@ app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
 });
 
+app.get('/brands', async (req, res) => {
+    try {
+        const brands = await MyModel.find({});
+        res.json(brands);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+    }
+});
 
 const getData = async () => {
     try {

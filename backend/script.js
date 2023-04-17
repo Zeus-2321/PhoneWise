@@ -4,6 +4,7 @@ const axios = require('axios');
 const cors = require('cors');
 const cron = require('node-cron');
 const phonesRouter = require('./routes');
+const Brand = require('./models/Brand');
 
 const app = express();
 app.use(cors());
@@ -24,7 +25,7 @@ app.listen(PORT, () => {
 
 const getData = async () => {
     try {
-        const response = await axios.get('http://phone-specs-api.azharimm.dev/brands');
+        const response = await axios.get('https://phone-specs-api.vercel.app/brands');
         const { data } = response.data;
 
         const newData = [];
@@ -32,7 +33,7 @@ const getData = async () => {
         // Loop through each brand in the response data
         for (let i = 0; i < data.length; i++) {
             const brand = data[i];
-            const existingBrand = await MyModel.findOne({ brand_id: brand.brand_id });
+            const existingBrand = await Brand.findOne({ brand_id: brand.brand_id });
 
             // Check if the brand already exists in the database
             if (!existingBrand) {
@@ -47,7 +48,7 @@ const getData = async () => {
 
         // Add the new brands to the database
         if (newData.length > 0) {
-            await MyModel.insertMany(newData);
+            await Brand.insertMany(newData);
         }
 
     } catch (error) {

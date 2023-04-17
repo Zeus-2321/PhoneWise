@@ -9,7 +9,7 @@ function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get('https://phone-specs-api.azharimm.dev/latest');
+      const response = await axios.get('https://phone-specs-api.vercel.app/latest');
       setPhones(response.data.data.phones);
     }
     fetchData();

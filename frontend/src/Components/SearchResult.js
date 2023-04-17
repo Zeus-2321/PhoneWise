@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './SearchResult.css';
 import image from './pepe.jfif';
 
-function SearchResult(props) {
+function SearchResult() {
     const location = useLocation();
     const searchResults = location.state;
 

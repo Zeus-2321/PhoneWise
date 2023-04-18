@@ -11,7 +11,7 @@ function BrandListing() {
 
     useEffect(() => {
         async function fetchPhones() {
-            const response = await axios.get(`https://phone-specs-api.azharimm.dev/brands/${slug}`);
+            const response = await axios.get(`https://phone-specs-api.vercel.app/brands/${slug}`);
             setPhones(response.data.data.phones);
         }
         fetchPhones();

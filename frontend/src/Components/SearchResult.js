@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './SearchResult.css';
 import image from './pepe.jfif';
 
-function SearchResult(props) {
+function SearchResult() {
     const location = useLocation();
     const searchResults = location.state;
 
@@ -39,5 +39,3 @@ function SearchResult(props) {
 }
 
 export default SearchResult;
-
-//I have a react frontend which uses a pre built API made by someone else to get the data and I want to make a server which sends an axios request to the API and gets the data and store it in my database and updates it every 24 hours so the database remains up to date and I want to use my database to display the data in my frontend using MERN stack

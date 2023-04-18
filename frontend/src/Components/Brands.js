@@ -9,8 +9,8 @@ function Brands() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get('https://phone-specs-api.azharimm.dev/brands');
-            setBrands(response.data.data);
+            const response = await axios.get('https://phonewise.onrender.com/api/brands');
+            setBrands(response.data);
         }
         fetchData();
         window.scrollTo(0, 0);

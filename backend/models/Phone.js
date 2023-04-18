@@ -8,6 +8,4 @@ const phoneSchema = new mongoose.Schema({
     thumbnail: String,
 });
 
-const Phone = mongoose.model('Phone', phoneSchema);
-
-module.exports = Phone;
+module.exports = mongoose.model('Phone', phoneSchema);

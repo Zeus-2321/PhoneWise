@@ -14,12 +14,12 @@ function SearchResult() {
 
     return (
         <div className='container'>
-            {searchResults.status && searchResults.data.phones.length > 0 ? (
+            {searchResults && searchResults.length > 0 ? (
                 <>
-                    <h2>{searchResults.data.title}</h2>
+                    <h2>Search Results</h2>
                     <div className="search-results-container">
-                        {searchResults.data.phones.map((phone) => (
-                            <div className="search-result" key={phone.slug}>
+                        {searchResults.map((phone) => (
+                            <div className="search-result" key={phone._id}>
                                 <img src={phone.image} alt={phone.phone_name} />
                                 <h4>{phone.phone_name}</h4>
                                 <Link to={`/details/${phone.slug}`}>View details</Link>

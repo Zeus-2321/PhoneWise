@@ -55,7 +55,7 @@ async function getPhoneBySlug(req, res, next) {
 }
 
 // Define a search endpoint
-router.get('search', async (req, res) => {
+router.get('/search', async (req, res) => {
     const query = req.query.q; // Get the search query from the request query parameters
 
     try {

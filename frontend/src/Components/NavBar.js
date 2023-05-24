@@ -20,7 +20,7 @@ function NavBar() {
     const handleSearch = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.get(`https://phone-specs-api.vercel.app/search?query=${searchQuery}`);
+            const response = await axios.get(`https://phonewise.onrender.com/api/search?q=${searchQuery}`);
             navigate('/results', { state: response.data });
         } catch (error) {
             console.error(error);

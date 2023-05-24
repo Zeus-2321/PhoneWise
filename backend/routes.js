@@ -54,4 +54,23 @@ async function getPhoneBySlug(req, res, next) {
     }
 }
 
+// Define a search endpoint
+router.get('/search', async (req, res) => {
+    const query = req.query.q; // Get the search query from the request query parameters
+
+    try {
+        // Search the smartphone collection based on the query
+        const results = await Phone.find({
+            $or: [
+                { brand: { $regex: query, $options: 'i' } },
+                { phone_name: { $regex: query, $options: 'i' } },
+            ],
+        });
+
+        res.json(results); // Send the search results as JSON response
+    } catch (error) {
+        res.status(500).json({ error: 'An error occurred' });
+    }
+});
+
 module.exports = router;

@@ -33,7 +33,7 @@ const getData = async () => {
         // Loop through each brand in the response data
         for (let i = 0; i < data.length; i++) {
             const brand = data[i];
-            const existingBrand = await Brand.findOne({ brand_id: brand.brand_id });
+            const existingBrand = await Brand.findOne({ brand_name: brand.brand_name });
 
             // Check if the brand already exists in the database
             if (!existingBrand) {

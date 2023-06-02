@@ -6,7 +6,7 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa';
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="container">
+            <div className="footer-container">
                 <div className="footer-social">
                     <a href="https://www.linkedin.com/in/dev-pratap-4ligma69/" target="_blank" rel="noopener noreferrer">
                         <FaLinkedin />
@@ -27,7 +27,7 @@ const Footer = () => {
                         </Link>
                     </li>
                 </ul>
-                <p>&copy;2023 PhoneWise</p>
+                <p>&copy;2023 PhoneWise &nbsp;| &nbsp;All Rights Reserved</p>
             </div>
         </footer>
     );

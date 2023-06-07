@@ -18,6 +18,11 @@
   margin-bottom: 1rem;
 }
 
+.details-header p {
+  color: black;
+  font-size: 1rem;
+}
+
 .details-header img {
   max-width: 80%;
   height: auto;

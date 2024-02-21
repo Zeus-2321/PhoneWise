@@ -54,23 +54,48 @@ async function getPhoneBySlug(req, res, next) {
     }
 }
 
-// Define a search endpoint
 router.get('/search', async (req, res) => {
     const query = req.query.q; // Get the search query from the request query parameters
-
+    
     try {
-        // Search the smartphone collection based on the query
-        const results = await Phone.find({
+        // Tokenize the search query
+        const tokens = query.split(/\s+/);
+        
+        // Construct an array of conditions for the $or operator
+        const conditions = tokens.map(token => ({
             $or: [
-                { brand: { $regex: query, $options: 'i' } },
-                { phone_name: { $regex: query, $options: 'i' } },
-            ],
-        });
-
+                { brand: { $regex: token, $options: 'i' } }, // Search for brand names
+                { phone_name: { $regex: token, $options: 'i' } } // Search for phone names
+            ]
+        }));
+        
+        // Find documents that match any of the conditions
+        const results = await Phone.find({ $or: conditions });
+        
         res.json(results); // Send the search results as JSON response
     } catch (error) {
         res.status(500).json({ error: 'An error occurred' });
     }
 });
+
+
+// // Define a search endpoint
+// router.get('/search', async (req, res) => {
+//     const query = req.query.q; // Get the search query from the request query parameters
+
+//     try {
+//         // Search the smartphone collection based on the query
+//         const results = await Phone.find({
+//             $or: [
+//                 { brand: { $regex: query, $options: 'i' } },
+//                 { phone_name: { $regex: query, $options: 'i' } },
+//             ],
+//         });
+
+//         res.json(results); // Send the search results as JSON response
+//     } catch (error) {
+//         res.status(500).json({ error: 'An error occurred' });
+//     }
+// });
 
 module.exports = router;

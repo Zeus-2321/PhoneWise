@@ -76,6 +76,7 @@ const getData = async () => {
 
 app.get("/update", async (req, res) => {
   try {
+    console.log("Started updating...");
     await getData();
     res.status(200).send("Data successfully updated!");
   } catch (error) {

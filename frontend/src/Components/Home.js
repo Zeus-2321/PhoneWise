@@ -1,31 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { InfinitySpin } from 'react-loader-spinner';
-import axios from 'axios';
-import './Home.css';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { InfinitySpin } from "react-loader-spinner";
+import axios from "axios";
+import "./Home.css";
 
 function Home() {
   const [phones, setPhones] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get('https://phone-specs-api.vercel.app/latest');
+      axios.get("https://phonewise.onrender.com/api");
+      const response = await axios.get(
+        "https://phone-specs-api.vercel.app/latest"
+      );
       setPhones(response.data.data.phones);
     }
     fetchData();
   }, []);
 
   if (phones.length === 0) {
-    return <div className='spinner-container'>
-      <InfinitySpin
-        width='200'
-        color="#4fa94d"
-      />
-    </div>
+    return (
+      <div className="spinner-container">
+        <InfinitySpin width="200" color="#4fa94d" />
+      </div>
+    );
   }
 
   return (
-    <div id='homeContainer'>
+    <div id="homeContainer">
       <h2>Latest Devices</h2>
       <div className="phones-container">
         {phones.map((phone) => (
@@ -41,4 +43,3 @@ function Home() {
 }
 
 export default Home;
-

@@ -7,8 +7,10 @@ function ProfilePage() {
   };
   return (
     <>
-      <div style={styles}>Profile</div>
-      <Profile></Profile>
+      <div style={styles}>
+        Profile
+        <Profile></Profile>
+      </div>
     </>
   );
 }

@@ -32,7 +32,7 @@ function Home() {
       <div className="phones-container">
         {phones.map((phone) => (
           <div key={phone.slug} className="phone-item">
-            <img src={phone.image} alt={phone.phone_name} />
+            <img src={phone.image} alt={phone.phone_name} loading="lazy"/>
             <h4>{phone.phone_name}</h4>
             <Link to={`/details/${phone.slug}`}>View details</Link>
           </div>
